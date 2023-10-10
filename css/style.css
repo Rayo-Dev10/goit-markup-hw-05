@@ -106,9 +106,6 @@ ul {
 /* :::  Pagina  ::::::  Inicio Index  ::: */
 
 /* :::  Estilos del Header  ::: */
-.contact-list li:first-child .contact-item {
-  color: var(--active-color);
-}
 
 .contact-item {
   align-items: center;
@@ -116,7 +113,6 @@ ul {
   display: flex;
   font-weight: 500;
 }
-
 
 .contact-list {
   display: flex;
@@ -139,18 +135,6 @@ ul {
   align-items: center;
   display: flex;
   height: 80px;
-}
-
-/* Primer elemento */
-.contact-list li:first-child .icon-contact {
-  fill: var(--active-color);
-  margin-right: 10px;
-}
-
-/* Resto de los elementos */
-.contact-list li:not(:first-child) .icon-contact {
-  fill: var(--paragraf-text-color);
-  margin-right: 10px;
 }
 
 .logo-set {
@@ -222,17 +206,14 @@ ul {
 }
 
 /* Estilos para cuando se hace hover o se enfoca la lista de contactos */
-.contact-list:hover .contact-set .contact-item,
-.contact-list:focus .contact-set .contact-item {
+.contact-item:hover,
+.contact-item:focus  {
   color: var(--active-color);
-  /* Cambia el color del texto */
 }
 
-.contact-list:hover .contact-set .icon-contact,
-.contact-list:focus .contact-set .icon-contact {
+.contact-item:hover,
+.contact-item:focus  {
   fill: var(--active-color);
-  /* Cambia el color de relleno */
-  cursor: pointer;
 }
 
 /* :::  Fin Estilos del Header  ::: */
@@ -262,8 +243,8 @@ ul {
   transition-timing-function: var(--cubic);
 }
 
-.hero-button:focus,
-.hero-button:hover {
+button:focus,
+button:hover {
   background-color: var(--active-color);
   color: var(--secondary-text-color);
   cursor: pointer;
@@ -280,7 +261,7 @@ ul {
   background-size: cover;
 }
 
-.hero-title,
+.L1,
 .L2 {
   color: var(--secondary-text-color);
   font-size: 44px;
