@@ -10,41 +10,48 @@
   --font-secondary: "Raleway", sans-serif;
 
   /* Colores */
-  --active-color:#2196f3;
-  --background-color:#ffffff;
-  --background-section:#e5e5e5;
-  --background-team-section:rgba(245, 244, 250, 1);
-  --border-color:#ececec;
-  --color-background:#f0f0f0;
-  --color-background-footer:var(--dark-background-color);
-  --color-backgrounf-btn:#f5f4fa;
-  --color-focus:var(--active-color);
-  --color-focus-text:#ffffff;
-  --color-recomendations-category:var(--paragraf-text-color);
-  --color-text:var(--main-text-color);
-  --container-color:#eeeeee;
-  --dark-background-color:rgba(47, 48, 58, 0.8);
+  --active-color: #2196f3;
+  --backdrop-background-color: rgba(0, 0, 0, 0.2);
+  --background-color: #ffffff;
+  --background-section: #e5e5e5;
+  --background-team-section: rgba(245, 244, 250, 1);
+  --border-color: #ececec;
+  --color-background: #f0f0f0;
+  --color-background-footer: var(--dark-background-color);
+  --color-backgrounf-btn: #f5f4fa;
+  --color-focus: var(--active-color);
+  --color-focus-text: #ffffff;
+  --color-recomendations-category: var(--paragraf-text-color);
+  --color-text: var(--main-text-color);
+  --container-color: #eeeeee;
+  --dark-background-color: rgba(47, 48, 58, 0.8);
   --footer-background-color: rgba(47, 48, 58, 1);
-  --footer-icon-color:rgba(255,255,255,0.1);
-  --footer-text-color:rgba(255,255,255,0.6);
-  --icon-color:#afb1b8;
-  --logo-text-color:#00000025%;
-  --main-font:var(--font-primary);
-  --main-text-color:#212121;
-  --paragraf-text-color:#757575;
-  --secondary-text-color:#ffffff;
+  --footer-icon-color: rgba(255, 255, 255, 0.1);
+  --footer-text-color: rgba(255, 255, 255, 0.6);
+  --icon-color: #afb1b8;
+  --logo-text-color: #00000025%;
+  --main-font: var(--font-primary);
+  --main-text-color: #212121;
+  --modal-button-stroke: rgba(0, 0, 0, 0.1);
+  --paragraf-text-color: #757575;
+  --secondary-text-color: #ffffff;
 
   /* Duraciones */
   --duration-time: 250ms;
-
   /* parametro cubic */
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
-
 }
+
 /*:::final Definición de variables para la paleta de colores y fuentes:::*/
 
 /* ::: Normalización de estilo ::: */
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 
@@ -62,6 +69,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 /* ::: Fin Normalización de estilo::: */
 
 /* :::  Definición de tamaños y estilos de base  ::: */
@@ -118,7 +126,7 @@ ul {
 
 .contact-set:focus,
 .contact-set:hover {
- color: var(--active-color);
+  color: var(--active-color);
 }
 
 .current-page {
@@ -152,7 +160,7 @@ ul {
   font-weight: 700;
   transition-duration: var(--duration-time);
   transition-property: transform;
-  transition-timing-function: var(--cubi)
+  transition-timing-function: var(--cubic);
 }
 
 .logo-set:focus,
@@ -216,12 +224,14 @@ ul {
 /* Estilos para cuando se hace hover o se enfoca la lista de contactos */
 .contact-list:hover .contact-set .contact-item,
 .contact-list:focus .contact-set .contact-item {
-  color: var(--active-color); /* Cambia el color del texto */
+  color: var(--active-color);
+  /* Cambia el color del texto */
 }
 
 .contact-list:hover .contact-set .icon-contact,
 .contact-list:focus .contact-set .icon-contact {
-  fill: var(--active-color); /* Cambia el color de relleno */
+  fill: var(--active-color);
+  /* Cambia el color de relleno */
   cursor: pointer;
 }
 
@@ -261,18 +271,17 @@ ul {
 }
 
 .hero-image {
-  background-image: linear-gradient(
-    90deg,
-    rgba(47, 48, 58, 0.4) 0%,
-    rgba(47, 48, 58, 0.4) 0%
-  ),
-  url(../images/imghero.jpg);
+  background-image: linear-gradient(90deg,
+      rgba(47, 48, 58, 0.4) 0%,
+      rgba(47, 48, 58, 0.4) 0%),
+    url(../images/imghero.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.hero-title, .L2 {
+.hero-title,
+.L2 {
   color: var(--secondary-text-color);
   font-size: 44px;
   font-weight: 900;
@@ -287,56 +296,58 @@ ul {
   margin-top: -5px;
 }
 
-.Backdrop {
+/* Inicio Estilos para el modal */
+.backdrop {
+  background-color: var(--backdrop-background-color);
+  height: 100%;
+  left: 0;
+  opacity: 1;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0, 0.3);
+  transition-duration: var(--duration-time);
+  transition-property: opacity, transform, visibility;
+  transition-timing-function: var(--cubic);
   visibility: visible;
-  opacity: 1;
-  transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
-  }
-  
-  .modal {
-  width: 528px;
+  width: 100%;
+  z-index: 100;
+}
+
+.close-btn {
+  border: 1px solid var(--modal-button-stroke);
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 30px;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  background-color: var(--background-color);
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  display: block;
   height: 581px;
-  background-color: var(--color-text-light);
-  position: fixed;
-  top: 50%;
   left: 50%;
+  position: absolute;
+  top: 50%;
   transform: translate(-50%, -50%);
-  }
-  
-  .is-hidden {
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-  }
-  
-  .data-modal-close {
-      color: var(--color-text-main);
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      background-color: var(--color-text-light);
-      border: 1px solid var(--color-border-clients);
-      border-radius: 100%;
-      width: 24px;
-      height: 24px;
-      cursor: pointer;
-      text-align: center;
-      transition: text-shadow 250ms var(--cubic), border-color 250ms var(--color-main);
-  }
-  
-  .data-modal-close:hover {
-      border-color: var(--color-main);
-      text-shadow: 0.5px 0.5px 1px var(--color-main);
-  }
+  width: 528px;
+}
+
+/* Fin Estilos para el modal */
 /* ::: Fin Estilos del hero  ::: */
 
-/* :::  Estilos de Caracteristicas  ::: */
+/* ::: Inicio Estilos de Caracteristicas  ::: */
 /* Agrega un pseudo-elemento para el overlay */
 .icons-icon-section::before {
   background-color: var(--background-team-section);
@@ -403,10 +414,9 @@ ul {
 
 /* ::: Fin Estilos de Caracteristicas  ::: */
 
-/* :::  Estilos de servicios  ::: */
-  .services-image {
-    display: block;
-  
+/* ::: Inicio Estilos de servicios  ::: */
+.services-image {
+  display: block;
 }
 
 .services-list {
@@ -415,7 +425,7 @@ ul {
   justify-content: space-between;
 }
 
-.services-list > li {
+.services-list>li {
   bottom: 0;
   flex-basis: calc((100% - 60px) / 3);
   position: relative;
@@ -429,7 +439,7 @@ ul {
   width: 370px;
 }
 
-.services-overlay-section > p {
+.services-overlay-section>p {
   color: var(--secondary-text-color);
   font-size: 14px;
   line-height: 1.14;
@@ -448,6 +458,7 @@ ul {
   margin-bottom: 50px;
   text-align: center;
 }
+
 /* ::: Fin  Estilos de servicios  ::: */
 
 
@@ -465,8 +476,8 @@ ul {
   margin-top: 16px;
 }
 
-.social-icons > li,
-.social-icons-footer > li {
+.social-icons>li,
+.social-icons-footer>li {
   border-radius: 50%;
   padding: 12px 12px;
 }
@@ -499,7 +510,7 @@ ul {
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-    width:270px;
+  width: 270px;
 }
 
 .team-member {
@@ -524,6 +535,7 @@ ul {
   margin-bottom: 50px;
   text-align: center;
 }
+
 /* ::: Fin Estilos de equipo  ::: */
 
 /* :::  Estilos de nuestros clientes  ::: */
@@ -561,6 +573,7 @@ ul {
   line-height: 1.17;
   margin-bottom: 50px;
 }
+
 /* :::  Fin Estilos de nuestros clientes  ::: */
 
 /* :::  Estilos del Main  ::: */
@@ -571,7 +584,8 @@ ul {
   font-weight: 500;
   line-height: 1.62;
   padding: 6px 24px;
-  transition: background-color, color, transform var(--duration-time); var(--cubic);
+  transition: background-color, color, transform var(--duration-time);
+  var(--cubic);
 }
 
 .button-port:focus,
@@ -595,7 +609,8 @@ ul {
 
 .card-list-item {
   flex-basis: calc((100% - 60px) / 3);
-  transition: box-shadow, cursor, transform var(--duration-time); var(--cubic);
+  transition: box-shadow, cursor, transform var(--duration-time);
+  var(--cubic);
 }
 
 .card-list-item:hover {
@@ -634,6 +649,7 @@ ul {
   line-height: 2;
   margin-bottom: 4px;
 }
+
 /* :::  Fin Estilos del Main  ::: */
 /* :::  Pagina  ::::::  Fin Index  ::: */
 
@@ -648,6 +664,7 @@ ul {
   color: var(--secondary-text-color);
   cursor: pointer;
 }
+
 .overlay {
   position: absolute;
   top: 0;
@@ -657,14 +674,15 @@ ul {
   background-color: var(--active-color);
   opacity: 0.9;
   transform: translateY(100%);
-  transition: transform var(--duration-time); var(--cubic);
+  transition: transform var(--duration-time);
+  var(--cubic);
 }
 
 .card-image-layer:hover .overlay {
   transform: translateX(0);
 }
 
-.overlay > p {
+.overlay>p {
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: 0.03em;
@@ -687,6 +705,7 @@ ul {
 .portfolio-view .img-section {
   Width: 370px;
 }
+
 /* :::  Fin de Tarjetas  ::: */
 
 /* :::  Pagina  ::::::  Fin portafolio  ::: */
@@ -786,4 +805,5 @@ footer a:hover,
 footer a:focus {
   color: var(--active-color);
 }
+
 /* ::: Fin Footer  ::: */
