@@ -35,7 +35,10 @@
   --secondary-text-color:#ffffff;
 
   /* Duraciones */
-  --duration-time: var(--duration-time);
+  --duration-time: 250ms;
+
+  /* parametro cubic */
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 /*:::final Definición de variables para la paleta de colores y fuentes:::*/
@@ -149,7 +152,7 @@ ul {
   font-weight: 700;
   transition-duration: var(--duration-time);
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--cubi)
 }
 
 .logo-set:focus,
@@ -181,7 +184,7 @@ ul {
   color: var(--main-text-color);
   transition-duration: var(--duration-time);
   transition-property: color, transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--cubic);
 }
 
 .transition-item:focus,
@@ -236,20 +239,21 @@ ul {
   background-color: var(--active-color);
   border: none;
   border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   color: var(--secondary-text-color);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.88;
   margin-top: 40px;
-  padding: 10px 40px;
+  padding: 10px 4px;
   transition-duration: var(--duration-time);
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: var(--cubic);
 }
 
-button:focus,
-button:hover {
+.hero-button:focus,
+.hero-button:hover {
   background-color: var(--active-color);
   color: var(--secondary-text-color);
   cursor: pointer;
@@ -282,6 +286,54 @@ button:hover {
 .L2 {
   margin-top: -5px;
 }
+
+.Backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.3);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
+  }
+  
+  .modal {
+  width: 528px;
+  height: 581px;
+  background-color: var(--color-text-light);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .is-hidden {
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+  }
+  
+  .data-modal-close {
+      color: var(--color-text-main);
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background-color: var(--color-text-light);
+      border: 1px solid var(--color-border-clients);
+      border-radius: 100%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      text-align: center;
+      transition: text-shadow 250ms var(--cubic), border-color 250ms var(--color-main);
+  }
+  
+  .data-modal-close:hover {
+      border-color: var(--color-main);
+      text-shadow: 0.5px 0.5px 1px var(--color-main);
+  }
 /* ::: Fin Estilos del hero  ::: */
 
 /* :::  Estilos de Caracteristicas  ::: */
@@ -519,7 +571,7 @@ button:hover {
   font-weight: 500;
   line-height: 1.62;
   padding: 6px 24px;
-  transition: background-color, color, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color, color, transform var(--duration-time); var(--cubic);
 }
 
 .button-port:focus,
@@ -543,7 +595,7 @@ button:hover {
 
 .card-list-item {
   flex-basis: calc((100% - 60px) / 3);
-  transition: box-shadow, cursor, transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow, cursor, transform var(--duration-time); var(--cubic);
 }
 
 .card-list-item:hover {
@@ -605,7 +657,7 @@ button:hover {
   background-color: var(--active-color);
   opacity: 0.9;
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-time); var(--cubic);
 }
 
 .card-image-layer:hover .overlay {
