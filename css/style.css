@@ -138,18 +138,10 @@ ul {
 }
 
 .logo-set {
-  color: var(--logo-text-color);
+  color: var(--active-color);
   font-family: Raleway;
   font-size: 26px;
   font-weight: 700;
-  transition-duration: var(--duration-time);
-  transition-property: transform;
-  transition-timing-function: var(--cubic);
-}
-
-.logo-set:focus,
-.logo-set:hover {
-  transform: scale(1.1);
 }
 
 .nav-list {
