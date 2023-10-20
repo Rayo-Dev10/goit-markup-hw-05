@@ -628,9 +628,7 @@ button:hover {
 
 /* :::  Pagina  ::::::  Inicio portafolio  ::: */
 /* :::  Inicio de Tarjetas  ::: */
-.card-list-item:nth-child(2) .img-text {
-  margin-top: -35px;
-}
+
 
 .filters-item:first-child .button-port {
   background-color: var(--active-color);
